@@ -1,0 +1,725 @@
+/* =====================================================
+   ÁLBUM DE PRESENTES - Camila & David
+   Tema: Verde Folhagem + Branco
+   ===================================================== */
+
+:root {
+    /* Cores principais */
+    --green-dark: #2d5a3d;
+    --green-medium: #4a7c59;
+    --green-light: #7fb069;
+    --green-pale: #c8e6c9;
+    --green-bg: #f1f8e9;
+    
+    --white: #ffffff;
+    --cream: #fafdf7;
+    --gold: #d4a84b;
+    --gold-light: #f5e6c8;
+    
+    --text-dark: #1a3325;
+    --text-medium: #3d5a47;
+    --text-light: #6b8b6f;
+    
+    /* Sombras - Material Design elevations */
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14);
+    --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+    --shadow-4: 0 6px 12px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-8: 0 12px 24px rgba(0, 0, 0, 0.15), 0 8px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Legacy aliases */
+    --shadow-soft: var(--shadow-1);
+    --shadow-medium: var(--shadow-2);
+    --shadow-lifted: var(--shadow-8);
+    
+    /* Tipografia - Display elegante + Apple System */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    
+    /* Espaçamentos - Apple style (mais generosos) */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.25rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Bordas */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 50%;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--green-bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    
+    /* Padrão de folhas sutil no fundo */
+    background-image: 
+        radial-gradient(circle at 20% 80%, var(--green-pale) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--green-pale) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(127, 176, 105, 0.1) 0%, transparent 30%);
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+}
+
+/* =====================================================
+   HERO HEADER
+   ===================================================== */
+.hero {
+    position: relative;
+    height: 220px;
+    margin: calc(-1 * var(--spacing-md));
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+}
+
+/* Fotos lado a lado como fundo */
+.hero-photos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.hero-photo-wrapper {
+    flex: 1;
+    overflow: hidden;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Mostra metade de cima */
+}
+
+/* Divisor sutil entre as fotos */
+.hero-photo-wrapper:first-child {
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Overlay com gradiente verde */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(45, 90, 61, 0.3) 0%,
+        rgba(45, 90, 61, 0.5) 50%,
+        rgba(45, 90, 61, 0.85) 100%
+    );
+}
+
+/* Conteúdo centralizado */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+.names {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    font-style: italic;
+}
+
+.name::first-letter {
+    text-transform: uppercase;
+}
+
+.ampersand {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0.2em;
+}
+
+/* Data do casamento */
+.wedding-date {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: var(--spacing-sm);
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Decoração inferior do hero */
+.hero-decoration {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    z-index: 2;
+}
+
+.hero-decoration span {
+    color: var(--green-pale);
+    font-size: 1rem;
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--green-pale);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* =====================================================
+   INSTRUÇÃO
+   ===================================================== */
+.instruction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    padding: 14px var(--spacing-md);
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-medium);
+    letter-spacing: -0.01em;
+}
+
+.swipe-hint {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.tap-icon {
+    font-size: 1.2rem;
+    animation: tap 2s ease-in-out infinite;
+}
+
+@keyframes tap {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* =====================================================
+   GRID DE CARDS
+   ===================================================== */
+.cards-wrapper {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    min-height: 400px;
+}
+
+/* Indicadores de swipe */
+.swipe-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.swipe-indicator.visible {
+    opacity: 1;
+}
+
+.swipe-left {
+    left: -8px;
+}
+
+.swipe-right {
+    right: -8px;
+}
+
+.swipe-arrow {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--green-medium);
+    animation: swipePulse 1.5s ease-in-out infinite;
+}
+
+.swipe-left .swipe-arrow {
+    animation-name: swipePulseLeft;
+}
+
+.swipe-right .swipe-arrow {
+    animation-name: swipePulseRight;
+}
+
+@keyframes swipePulseLeft {
+    0%, 100% { 
+        opacity: 0.4;
+        transform: translateX(0);
+    }
+    50% { 
+        opacity: 1;
+        transform: translateX(-4px);
+    }
+}
+
+@keyframes swipePulseRight {
+    0%, 100% { 
+        opacity: 0.4;
+        transform: translateX(0);
+    }
+    50% { 
+        opacity: 1;
+        transform: translateX(4px);
+    }
+}
+
+/* Card Container (para o flip) */
+.card-container {
+    perspective: 1000px;
+    height: 200px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Faces do Card - Material Design */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+/* Frente do Card - Material surface */
+.card-front {
+    background: var(--white);
+}
+
+.card:hover .card-front,
+.card:active .card-front {
+    box-shadow: var(--shadow-4);
+}
+
+.sticker {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    background: var(--green-bg);
+    border-radius: 16px;
+    margin-bottom: var(--spacing-sm);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Suporte para imagens customizadas */
+.sticker img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.card:not(.flipped):hover .sticker,
+.card:not(.flipped):active .sticker {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.card-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+}
+
+.card-value {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--green-dark);
+    letter-spacing: -0.02em;
+}
+
+.card-value::before {
+    content: 'R$ ';
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-medium);
+}
+
+/* Verso do Card - QR Code - Material surface */
+.card-back {
+    background: var(--green-dark);
+    transform: rotateY(180deg);
+    padding: var(--spacing-sm);
+}
+
+.qr-wrapper {
+    background: var(--white);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-xs);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-2);
+}
+
+.qr-wrapper:active {
+    transform: scale(0.95);
+}
+
+.qr-code {
+    width: 88px;
+    height: 88px;
+    display: block;
+}
+
+.qr-hint {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.copy-icon {
+    font-size: 0.85rem;
+}
+
+/* =====================================================
+   PAGINAÇÃO
+   ===================================================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-1);
+}
+
+.page-btn:hover {
+    box-shadow: var(--shadow-2);
+    background: var(--green-bg);
+}
+
+.page-btn:active {
+    transform: scale(0.95);
+}
+
+.page-btn.active {
+    background: var(--green-medium);
+    box-shadow: var(--shadow-2);
+}
+
+.page-number {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--green-dark);
+    transition: color 0.2s ease;
+}
+
+.page-btn.active .page-number {
+    color: var(--white);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* =====================================================
+   TOAST
+   ===================================================== */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-8);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    font-family: var(--font-body);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--green-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.toast-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+/* =====================================================
+   ANIMAÇÕES DE ENTRADA
+   ===================================================== */
+.card-container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardEnter 0.5s ease forwards;
+}
+
+.card-container:nth-child(1) { animation-delay: 0.05s; }
+.card-container:nth-child(2) { animation-delay: 0.1s; }
+.card-container:nth-child(3) { animation-delay: 0.15s; }
+.card-container:nth-child(4) { animation-delay: 0.2s; }
+.card-container:nth-child(5) { animation-delay: 0.25s; }
+.card-container:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes cardEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   RESPONSIVO
+   ===================================================== */
+
+/* Tablets pequenos */
+@media (min-width: 400px) {
+    .cards-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .card-container {
+        height: 220px;
+    }
+    
+    .sticker {
+        width: 90px;
+        height: 90px;
+        font-size: 3.5rem;
+    }
+}
+
+/* Tablets */
+@media (min-width: 600px) {
+    .container {
+        max-width: 560px;
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero {
+        height: 260px;
+        margin: 0;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .name {
+        font-size: 3.2rem;
+    }
+    
+    .ampersand {
+        font-size: 2.2rem;
+    }
+    
+    .wedding-date {
+        font-size: 1.2rem;
+    }
+}
+
+/* iPads e tablets maiores */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: var(--spacing-lg);
+    }
+    
+    .hero {
+        height: 300px;
+    }
+    
+    .card-container {
+        height: 240px;
+    }
+    
+    .sticker {
+        width: 100px;
+        height: 100px;
+        font-size: 4rem;
+    }
+    
+    .card-value {
+        font-size: 1.6rem;
+    }
+    
+    .qr-code {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .name {
+        font-size: 3.8rem;
+    }
+    
+    .ampersand {
+        font-size: 2.5rem;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: 160px;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .ampersand {
+        font-size: 1.4rem;
+    }
+    
+    .card-container {
+        height: 180px;
+    }
+}
+
+/* Preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode (opcional - respeita preferência do sistema) */
+@media (prefers-color-scheme: dark) {
+    /* Mantém tema claro por ser um site de casamento */
+}
+

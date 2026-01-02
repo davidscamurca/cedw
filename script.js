@@ -1,5 +1,5 @@
-// 🔊 Som habilitado
-const SOUND_ENABLED = false;
+// 📅 Data do casamento
+const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 
 // 📋 Lista de figurinhas/presentes
 // Para usar imagem: troque o emoji por "img:nome-do-arquivo" (ex: "img:cafe.png")
@@ -47,83 +47,6 @@ const TOTAL_PAGES = 3;
 // =====================================================
 let currentPage = 1;
 
-// Audio context para sons
-let audioContext = null;
-
-// =====================================================
-// SISTEMA DE SOM
-// =====================================================
-
-/**
- * Inicializa o contexto de áudio (precisa de interação do usuário)
- */
-function initAudio() {
-    if (!audioContext && SOUND_ENABLED) {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-}
-
-/**
- * Toca um som suave de "click" usando Web Audio API
- * Som gerado proceduralmente - sem arquivos externos
- */
-function playFlipSound() {
-    if (!SOUND_ENABLED || !audioContext) return;
-    
-    try {
-        // Criar oscilador para tom suave
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        // Conectar
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        // Configurar som suave e agradável (tipo "pop")
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
-        oscillator.type = 'sine';
-        
-        // Volume suave com fade out
-        gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
-        
-        // Tocar
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.15);
-    } catch (e) {
-        // Silenciosamente ignora erros de áudio
-    }
-}
-
-/**
- * Toca som de sucesso (quando copia PIX)
- */
-function playSuccessSound() {
-    if (!SOUND_ENABLED || !audioContext) return;
-    
-    try {
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        // Som ascendente agradável
-        oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(900, audioContext.currentTime + 0.1);
-        oscillator.type = 'sine';
-        
-        gainNode.gain.setValueAtTime(0.12, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.2);
-    } catch (e) {
-        // Silenciosamente ignora erros de áudio
-    }
-}
-
 // =====================================================
 // ELEMENTOS DOM
 // =====================================================
@@ -140,6 +63,39 @@ const swipeRight = document.getElementById('swipeRight');
 const _0x = '4cjN5YzMjVTYiJmMtMmM4EWLkZjM00yN5EWOtQTZxUGMxYmN';
 const _$ = (s) => s.split('').reduce((a, c, i, arr) => a + arr[arr.length - 1 - i], '');
 const PIX_KEY = ((d) => atob(d))(_$(_0x));
+
+/**
+ * Calcula e exibe contador regressivo
+ */
+function updateCountdown() {
+    const now = new Date();
+    const diff = WEDDING_DATE - now;
+    const countdownEl = document.getElementById('countdown');
+    
+    if (!countdownEl) return;
+    
+    if (diff <= 0) {
+        countdownEl.textContent = 'Hoje é o grande dia!';
+        return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+    if (days === 1) {
+        countdownEl.textContent = 'Falta 1 dia';
+    } else {
+        countdownEl.textContent = `Faltam ${days} dias`;
+    }
+}
+
+/**
+ * Vibra o dispositivo (se suportado)
+ */
+function vibrate() {
+    if ('vibrate' in navigator) {
+        navigator.vibrate(50);
+    }
+}
 
 /**
  * Formata valor para exibição
@@ -353,7 +309,9 @@ async function handleCopyPix(qrWrapper) {
     const success = await copyToClipboard(pixKey);
     
     if (success) {
-        showToast('PIX copiado! 💚');
+        // Vibração + mensagem de agradecimento
+        vibrate();
+        showToast('PIX copiado! Obrigado 💚');
         
         // Feedback visual
         qrWrapper.style.transform = 'scale(0.9)';
@@ -446,6 +404,9 @@ function handleSwipe() {
 // =====================================================
 
 function init() {
+    // Atualiza contador regressivo
+    updateCountdown();
+    
     // Adiciona transição ao grid
     cardsGrid.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
     

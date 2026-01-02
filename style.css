@@ -114,12 +114,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* Mostra metade de cima */
-}
-
-/* Divisor sutil entre as fotos */
-.hero-photo-wrapper:first-child {
-    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    object-position: center 30%; /* Corta mais do topo, mostra mais o centro */
 }
 
 /* Overlay com gradiente verde */
@@ -224,27 +219,14 @@ body {
    INSTRUÇÃO
    ===================================================== */
 .instruction {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    padding: 14px var(--spacing-md);
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: var(--shadow-1);
-    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: var(--spacing-md);
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 400;
-    color: var(--text-medium);
-    letter-spacing: -0.01em;
-}
-
-.swipe-hint {
     color: var(--text-light);
-    font-size: 0.8rem;
-    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 
 .tap-icon {
@@ -267,9 +249,9 @@ body {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    min-height: 400px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    min-height: 360px;
 }
 
 /* Indicadores de swipe */
@@ -340,7 +322,7 @@ body {
 /* Card Container (para o flip) */
 .card-container {
     perspective: 1000px;
-    height: 200px;
+    height: 115px;
 }
 
 .card {
@@ -363,14 +345,15 @@ body {
     height: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius: 12px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow-1);
     overflow: hidden;
     transition: box-shadow 0.2s ease;
+    padding: 8px;
 }
 
 /* Frente do Card - Material surface */
@@ -384,15 +367,15 @@ body {
 }
 
 .sticker {
-    width: 72px;
-    height: 72px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.8rem;
+    font-size: 1.5rem;
     background: var(--green-bg);
-    border-radius: 16px;
-    margin-bottom: var(--spacing-sm);
+    border-radius: 10px;
+    margin-bottom: 4px;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -410,17 +393,17 @@ body {
 
 .card-title {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 500;
     color: var(--text-light);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 2px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
 }
 
 .card-value {
     font-family: var(--font-body);
-    font-size: 1.5rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--green-dark);
     letter-spacing: -0.02em;
@@ -428,7 +411,7 @@ body {
 
 .card-value::before {
     content: 'R$ ';
-    font-size: 0.85rem;
+    font-size: 0.6rem;
     font-weight: 400;
     color: var(--text-medium);
 }
@@ -442,11 +425,11 @@ body {
 
 .qr-wrapper {
     background: var(--white);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: var(--spacing-xs);
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 2px;
     transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow-1);
 }
 
 .qr-wrapper:active {
@@ -454,24 +437,24 @@ body {
 }
 
 .qr-code {
-    width: 88px;
-    height: 88px;
+    width: 55px;
+    height: 55px;
     display: block;
 }
 
 .qr-hint {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.55rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
 }
 
 .copy-icon {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
 }
 
 /* =====================================================
@@ -629,9 +612,6 @@ body {
         max-width: 560px;
     }
     
-    .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
     
     .hero {
         height: 260px;

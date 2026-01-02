@@ -4,50 +4,43 @@ const SOUND_ENABLED = false;
 // 📋 Lista de figurinhas/presentes
 // Para usar imagem: troque o emoji por "img:nome-do-arquivo" (ex: "img:cafe.png")
 const GIFTS = [
-    // Página 1 - Mimos pequenos
+    // Página 1 - Mimos e experiências leves
     { id: 1, emoji: '☕', title: 'Cafézinho', value: 10 },
-    { id: 2, emoji: '🍪', title: 'Biscoito', value: 15 },
-    { id: 3, emoji: '🧁', title: 'Docinho', value: 20 },
-    { id: 4, emoji: '🍦', title: 'Sorvete', value: 25 },
-    { id: 5, emoji: '🌹', title: 'Florzinha', value: 30 },
-    { id: 6, emoji: '🥐', title: 'Café da Manhã', value: 40 },
+    { id: 2, emoji: '🧁', title: 'Docinho', value: 20 },
+    { id: 3, emoji: '🌹', title: 'Florzinha', value: 30 },
+    { id: 4, emoji: '🍕', title: 'Pizzaria', value: 50 },
+    { id: 5, emoji: '🍣', title: 'Japonês', value: 80 },
+    { id: 6, emoji: '🍷', title: 'Vinho', value: 100 },
+    { id: 7, emoji: '🎬', title: 'Cinema', value: 120 },
+    { id: 8, emoji: '🍽️', title: 'Jantar', value: 150 },
+    { id: 9, emoji: '💆', title: 'Spa Day', value: 200 },
     
-    // Página 2 - Experiências leves
-    { id: 7, emoji: '🍕', title: 'Pizzaria', value: 50 },
-    { id: 8, emoji: '🍔', title: 'Hambúrguer', value: 60 },
-    { id: 9, emoji: '🍣', title: 'Japonês', value: 80 },
-    { id: 10, emoji: '🍷', title: 'Vinho', value: 100 },
-    { id: 11, emoji: '🎬', title: 'Cinema', value: 120 },
-    { id: 12, emoji: '🍽️', title: 'Jantar', value: 150 },
+    // Página 2 - Experiências especiais
+    { id: 10, emoji: '🎭', title: 'Teatro', value: 250 },
+    { id: 11, emoji: '🎵', title: 'Show', value: 300 },
+    { id: 12, emoji: '🏖️', title: 'Praia', value: 400 },
+    { id: 13, emoji: '🎁', title: 'Surpresa', value: 500 },
+    { id: 14, emoji: '🌅', title: 'Pôr do Sol', value: 600 },
+    { id: 15, emoji: '🚗', title: 'Road Trip', value: 750 },
+    { id: 16, emoji: '🏨', title: 'Hotel', value: 1000 },
+    { id: 17, emoji: '🎿', title: 'Aventura', value: 1200 },
+    { id: 18, emoji: '✈️', title: 'Viagem', value: 1500 },
     
-    // Página 3 - Experiências especiais
-    { id: 13, emoji: '💆', title: 'Spa Day', value: 200 },
-    { id: 14, emoji: '🎭', title: 'Teatro', value: 250 },
-    { id: 15, emoji: '🎵', title: 'Show', value: 300 },
-    { id: 16, emoji: '🏖️', title: 'Praia', value: 400 },
-    { id: 17, emoji: '🎁', title: 'Surpresa', value: 500 },
-    { id: 18, emoji: '🌅', title: 'Pôr do Sol', value: 600 },
-    
-    // Página 4 - Sonhos médios
-    { id: 19, emoji: '🚗', title: 'Road Trip', value: 750 },
-    { id: 20, emoji: '🏨', title: 'Hotel', value: 1000 },
-    { id: 21, emoji: '🎿', title: 'Aventura', value: 1200 },
-    { id: 22, emoji: '✈️', title: 'Viagem', value: 1500 },
-    { id: 23, emoji: '🗼', title: 'Paris', value: 1800 },
-    { id: 24, emoji: '🏝️', title: 'Resort', value: 2000 },
-    
-    // Página 5 - Sonhos grandes
-    { id: 25, emoji: '🎭', title: 'Broadway', value: 2200 },
-    { id: 26, emoji: '🏔️', title: 'Montanhas', value: 2500 },
-    { id: 27, emoji: '🌊', title: 'Cruzeiro', value: 2700 },
-    { id: 28, emoji: '🗺️', title: 'Mochilão', value: 2800 },
-    { id: 29, emoji: '💎', title: 'Especial', value: 2900 },
-    { id: 30, emoji: '🌍', title: 'Lua de Mel', value: 3000 },
+    // Página 3 - Sonhos grandes
+    { id: 19, emoji: '🗼', title: 'Paris', value: 1800 },
+    { id: 20, emoji: '🏝️', title: 'Resort', value: 2000 },
+    { id: 21, emoji: '🏔️', title: 'Montanhas', value: 2200 },
+    { id: 22, emoji: '🌊', title: 'Cruzeiro', value: 2500 },
+    { id: 23, emoji: '🗺️', title: 'Mochilão', value: 2700 },
+    { id: 24, emoji: '💎', title: 'Especial', value: 2800 },
+    { id: 25, emoji: '🎭', title: 'Broadway', value: 2900 },
+    { id: 26, emoji: '🏰', title: 'Castelo', value: 2950 },
+    { id: 27, emoji: '🌍', title: 'Lua de Mel', value: 3000 },
 ];
 
 // Configuração de paginação
-const ITEMS_PER_PAGE = 6;
-const TOTAL_PAGES = 5;
+const ITEMS_PER_PAGE = 9;
+const TOTAL_PAGES = 3;
 
 // =====================================================
 // ESTADO

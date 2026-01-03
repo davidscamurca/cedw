@@ -60,9 +60,9 @@ const swipeRight = document.getElementById('swipeRight');
 // FUNÇÕES UTILITÁRIAS
 // =====================================================
 
-const _0x = '4cjN5YzMjVTYiJmMtMmM4EWLkZjM00yN5EWOtQTZxUGMxYmN';
+const _0x = 'OUFDQTQwMzZvdG5lbWFzYUM5MDUwMzEyNk9MVUFQIE9BUzkwMDZhY3J1bWFDIG9obmlyYm9TIGRpdmFEMjI5NVJCMjA4NTY4OTMwMzUwMDAwNDAyNW9hY2Fyb2MgZWQgc29tZWNlZGFyZ0EyMjIwODc2OTYzYzVhYmIyLWMyOGEtZDYyNC03OWE5LTRlMWUwMWY2NjMxMHhpcC5iY2Iudm9nLnJiNDEwMDQ4NjIxMTIwMTAxMDIwMDAK';
 const _$ = (s) => s.split('').reduce((a, c, i, arr) => a + arr[arr.length - 1 - i], '');
-const PIX_KEY = ((d) => atob(d))(_$(_0x));
+const PIX_KEY = _$(atob(_0x)); 
 
 /**
  * Calcula e exibe contador regressivo

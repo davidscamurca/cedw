@@ -143,7 +143,7 @@ async function copyToClipboard(text) {
 /**
  * Mostra toast de confirmação
  */
-function showToast(message = 'PIX copiado!') {
+function showToast(message = 'PIX Copia e Cola, copiado!') {
     const toastText = toast.querySelector('.toast-text');
     toastText.textContent = message;
     toast.classList.add('show');

@@ -78,29 +78,6 @@ body {
         radial-gradient(circle at 50% 50%, rgba(200, 230, 201, 0.3) 0%, transparent 60%);
 }
 
-/* Folhas decorativas flutuantes */
-body::before,
-body::after {
-    content: '🌿';
-    position: fixed;
-    font-size: 2rem;
-    opacity: 0.15;
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::before {
-    top: 20%;
-    left: 5%;
-    transform: rotate(-30deg);
-}
-
-body::after {
-    content: '🍃';
-    bottom: 30%;
-    right: 5%;
-    transform: rotate(20deg);
-}
 
 .container {
     max-width: 480px;

@@ -6,35 +6,35 @@ const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 const GIFTS = [
     // Página 1 - Mimos e experiências leves
     { id: 1, emoji: '☕', title: 'Cafézinho', value: 10 },
-    { id: 2, emoji: '🧁', title: 'Docinho', value: 20 },
-    { id: 3, emoji: '🌹', title: 'Florzinha', value: 30 },
-    { id: 4, emoji: '🍕', title: 'Pizzaria', value: 50 },
-    { id: 5, emoji: '🍣', title: 'Japonês', value: 80 },
+    { id: 2, emoji: '🍫', title: 'Chocolate', value: 20 },
+    { id: 3, emoji: '🌺', title: 'Vitória-Régia', value: 30 },
+    { id: 4, emoji: '🦋', title: 'Borboleta', value: 50 },
+    { id: 5, emoji: '🥭', title: 'Frutas', value: 80 },
     { id: 6, emoji: '🍷', title: 'Vinho', value: 100 },
-    { id: 7, emoji: '🎬', title: 'Cinema', value: 120 },
+    { id: 7, emoji: '🦜', title: 'Arara', value: 120 },
     { id: 8, emoji: '🍽️', title: 'Jantar', value: 150 },
     { id: 9, emoji: '💆', title: 'Spa Day', value: 200 },
     
     // Página 2 - Experiências especiais
-    { id: 10, emoji: '🎭', title: 'Teatro', value: 250 },
+    { id: 10, emoji: '🐢', title: 'Tartaruga', value: 250 },
     { id: 11, emoji: '🎵', title: 'Show', value: 300 },
     { id: 12, emoji: '🏖️', title: 'Praia', value: 400 },
     { id: 13, emoji: '🎁', title: 'Surpresa', value: 500 },
     { id: 14, emoji: '🌅', title: 'Pôr do Sol', value: 600 },
-    { id: 15, emoji: '🚗', title: 'Road Trip', value: 750 },
+    { id: 15, emoji: '🛶', title: 'Canoa', value: 750 },
     { id: 16, emoji: '🏨', title: 'Hotel', value: 1000 },
-    { id: 17, emoji: '🎿', title: 'Aventura', value: 1200 },
+    { id: 17, emoji: '🐆', title: 'Onça', value: 1200 },
     { id: 18, emoji: '✈️', title: 'Viagem', value: 1500 },
     
     // Página 3 - Sonhos grandes
-    { id: 19, emoji: '🗼', title: 'Paris', value: 1800 },
+    { id: 19, emoji: '🌴', title: 'Açaí', value: 1800 },
     { id: 20, emoji: '🏝️', title: 'Resort', value: 2000 },
-    { id: 21, emoji: '🏔️', title: 'Montanhas', value: 2200 },
-    { id: 22, emoji: '🌊', title: 'Cruzeiro', value: 2500 },
-    { id: 23, emoji: '🗺️', title: 'Mochilão', value: 2700 },
+    { id: 21, emoji: '🌳', title: 'Floresta', value: 2200 },
+    { id: 22, emoji: '🚤', title: 'Lancha', value: 2500 },
+    { id: 23, emoji: '🗺️', title: 'Expedição', value: 2700 },
     { id: 24, emoji: '💎', title: 'Especial', value: 2800 },
-    { id: 25, emoji: '🎭', title: 'Broadway', value: 2900 },
-    { id: 26, emoji: '🏰', title: 'Castelo', value: 2950 },
+    { id: 25, emoji: '🐊', title: 'Jacaré', value: 2900 },
+    { id: 26, emoji: '🌿', title: 'Natureza', value: 2950 },
     { id: 27, emoji: '🌍', title: 'Lua de Mel', value: 3000 },
 ];
 
@@ -108,17 +108,10 @@ function formatValue(value) {
 }
 
 /**
- * Gera URL do QR Code usando API gratuita
- * O QR Code contém os dados do PIX Copia e Cola
+ * Retorna o caminho do QR Code estático
  */
 function generateQRCodeURL(value) {
-    // Texto que será codificado no QR (PIX Copia e Cola simplificado)
-    const pixText = `${PIX_KEY}`;
-    
-    // Usando API gratuita do QR Server
-    const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(pixText)}&bgcolor=ffffff&color=2d5a3d`;
-    
-    return qrApiUrl;
+    return 'img/qr.jpg';
 }
 
 /**
@@ -202,10 +195,7 @@ function createCardHTML(gift) {
                     <div class="qr-wrapper" data-pix="${PIX_KEY}">
                         <img class="qr-code" src="${qrCodeUrl}" alt="QR Code PIX" loading="lazy">
                     </div>
-                    <span class="qr-hint">
-                        <span class="copy-icon">📋</span>
-                        Toque para copiar
-                    </span>
+                    <span class="qr-hint">Toque para copiar</span>
                 </div>
             </div>
         </div>

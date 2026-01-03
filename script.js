@@ -301,7 +301,7 @@ async function handleCopyPix(qrWrapper) {
     if (success) {
         // Vibração + mensagem de agradecimento
         vibrate();
-        showToast('PIX Copia e Cola, copiado! Obrigado 💚');
+        showToast('PIX Copia e Cola! Obrigado 💚');
         
         // Feedback visual
         qrWrapper.style.transform = 'scale(0.9)';

@@ -143,7 +143,7 @@ async function copyToClipboard(text) {
 /**
  * Mostra toast de confirmação
  */
-function showToast(message = 'PIX Copia e Cola, copiado!') {
+function showToast(message = 'PIX copiado!') {
     const toastText = toast.querySelector('.toast-text');
     toastText.textContent = message;
     toast.classList.add('show');
@@ -301,7 +301,7 @@ async function handleCopyPix(qrWrapper) {
     if (success) {
         // Vibração + mensagem de agradecimento
         vibrate();
-        showToast('PIX copiado! Obrigado 💚');
+        showToast('PIX Copia e Cola, copiado! Obrigado 💚');
         
         // Feedback visual
         qrWrapper.style.transform = 'scale(0.9)';

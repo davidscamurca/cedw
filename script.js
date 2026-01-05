@@ -18,6 +18,10 @@ const CUSTOM_IMAGES = [
     '400_Jantar_no_Roseiral.webp',
     '500_Almoco_no_Caxiri.webp',
     '600_FDS_em_Presidente_Figueiredo.jpg',
+    '750_Diaria_Hotel_Tropical.jpg',
+    '1000_DAY_SPA.jpg',
+    '1200_3_parcelas_pos_graduacao.jpg',
+    '1500_Diaria_Villa_Amazonia_Baixa_Temporada.jpeg',
     '1800_Sessao_de_Fotos.jpg',
     '2000_Mercado_do_Mes.jpg',
     '2200_1_Parcela_a_menos.jpg',
@@ -41,40 +45,40 @@ CUSTOM_IMAGES.forEach(filename => {
     }
 });
 
-// 📋 Lista de figurinhas/presentes (emoji e título são fallback)
+// 📋 Lista de presentes (valores disponíveis)
 const GIFTS = [
-    // Página 1 - Mimos e experiências leves
-    { id: 1, emoji: '☕', title: 'Cafézinho', value: 10 },
-    { id: 2, emoji: '🍫', title: 'Chocolate', value: 20 },
-    { id: 3, emoji: '🌺', title: 'Vitória-Régia', value: 30 },
-    { id: 4, emoji: '🦋', title: 'Borboleta', value: 50 },
-    { id: 5, emoji: '🥭', title: 'Frutas', value: 80 },
-    { id: 6, emoji: '🍷', title: 'Vinho', value: 100 },
-    { id: 7, emoji: '🦜', title: 'Arara', value: 120 },
-    { id: 8, emoji: '🍽️', title: 'Jantar', value: 150 },
-    { id: 9, emoji: '💆', title: 'Spa Day', value: 200 },
+    // Página 1
+    { id: 1, value: 10 },
+    { id: 2, value: 20 },
+    { id: 3, value: 30 },
+    { id: 4, value: 50 },
+    { id: 5, value: 80 },
+    { id: 6, value: 100 },
+    { id: 7, value: 120 },
+    { id: 8, value: 150 },
+    { id: 9, value: 200 },
     
-    // Página 2 - Experiências especiais
-    { id: 10, emoji: '🐢', title: 'Tartaruga', value: 250 },
-    { id: 11, emoji: '🎵', title: 'Show', value: 300 },
-    { id: 12, emoji: '🏖️', title: 'Praia', value: 400 },
-    { id: 13, emoji: '🎁', title: 'Surpresa', value: 500 },
-    { id: 14, emoji: '🌅', title: 'Pôr do Sol', value: 600 },
-    { id: 15, emoji: '🛶', title: 'Canoa', value: 750 },
-    { id: 16, emoji: '🏨', title: 'Hotel', value: 1000 },
-    { id: 17, emoji: '🐆', title: 'Onça', value: 1200 },
-    { id: 18, emoji: '✈️', title: 'Viagem', value: 1500 },
+    // Página 2
+    { id: 10, value: 250 },
+    { id: 11, value: 300 },
+    { id: 12, value: 400 },
+    { id: 13, value: 500 },
+    { id: 14, value: 600 },
+    { id: 15, value: 750 },
+    { id: 16, value: 1000 },
+    { id: 17, value: 1200 },
+    { id: 18, value: 1500 },
     
-    // Página 3 - Sonhos grandes
-    { id: 19, emoji: '🌴', title: 'Açaí', value: 1800 },
-    { id: 20, emoji: '🏝️', title: 'Resort', value: 2000 },
-    { id: 21, emoji: '🌳', title: 'Floresta', value: 2200 },
-    { id: 22, emoji: '🚤', title: 'Lancha', value: 2500 },
-    { id: 23, emoji: '🗺️', title: 'Expedição', value: 2700 },
-    { id: 24, emoji: '💎', title: 'Especial', value: 2800 },
-    { id: 25, emoji: '🐊', title: 'Jacaré', value: 2900 },
-    { id: 26, emoji: '🌿', title: 'Natureza', value: 2950 },
-    { id: 27, emoji: '🌍', title: 'Lua de Mel', value: 3000 },
+    // Página 3
+    { id: 19, value: 1800 },
+    { id: 20, value: 2000 },
+    { id: 21, value: 2200 },
+    { id: 22, value: 2500 },
+    { id: 23, value: 2700 },
+    { id: 24, value: 2800 },
+    { id: 25, value: 2900 },
+    { id: 26, value: 2950 },
+    { id: 27, value: 3000 },
 ];
 
 // Configuração de paginação
@@ -200,49 +204,20 @@ function showToast(message = 'PIX copiado!') {
  * Cria HTML de um card
  */
 function createCardHTML(gift) {
-    const customImg = IMAGES_BY_VALUE[gift.value];
-    const hasImage = !!customImg;
-    const displayTitle = hasImage ? customImg.title : gift.title;
+    const img = IMAGES_BY_VALUE[gift.value];
     const qrCodeUrl = generateQRCodeURL(gift.value);
     
-    // Layout diferente para cards com imagem (imagem ocupa card todo)
-    if (hasImage) {
-        return `
-            <div class="card-container">
-                <div class="card card-with-image" data-id="${gift.id}" data-value="${gift.value}">
-                    <!-- Frente - Imagem full -->
-                    <div class="card-face card-front">
-                        <img src="${customImg.path}" alt="${customImg.title}" class="card-bg-image">
-                        <div class="card-overlay"></div>
-                        <div class="card-info">
-                            <span class="card-title">${displayTitle}</span>
-                            <span class="card-value">${formatValue(gift.value)}</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Verso - QR Code -->
-                    <div class="card-face card-back">
-                        <div class="qr-wrapper" data-pix="${PIX_KEY}">
-                            <img class="qr-code" src="${qrCodeUrl}" alt="QR Code PIX" loading="lazy">
-                        </div>
-                        <span class="qr-hint">Toque para copiar</span>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-    
-    // Layout padrão com emoji
     return `
         <div class="card-container">
-            <div class="card" data-id="${gift.id}" data-value="${gift.value}">
-                <!-- Frente - Emoji -->
+            <div class="card card-with-image" data-id="${gift.id}" data-value="${gift.value}">
+                <!-- Frente - Imagem -->
                 <div class="card-face card-front">
-                    <div class="sticker">
-                        <span class="sticker-emoji">${gift.emoji}</span>
+                    <img src="${img.path}" alt="${img.title}" class="card-bg-image">
+                    <div class="card-overlay"></div>
+                    <div class="card-info">
+                        <span class="card-title">${img.title}</span>
+                        <span class="card-value">${formatValue(gift.value)}</span>
                     </div>
-                    <span class="card-title">${displayTitle}</span>
-                    <span class="card-value">${formatValue(gift.value)}</span>
                 </div>
                 
                 <!-- Verso - QR Code -->

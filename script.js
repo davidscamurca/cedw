@@ -13,6 +13,20 @@ const CUSTOM_IMAGES = [
     '120_Rodada_Top_Frozen.jpg',
     '150_Carne_Sol_Pedra.jpg',
     '200_Tambaqui_Assado.jpeg',
+    '250_Almoço_Tambaqui_de_Banda.jpg',
+    '300_1_Tanque_de_Gasolina.webp',
+    '400_Jantar_no_Roseiral.webp',
+    '500_Almoço_no_Caxiri.webp',
+    '600_FDS_em_Presidente_Figueiredo.jpg',
+    '1800_Sessão_de_Fotos.jpg',
+    '2000_Mercado_do_Mês.jpg',
+    '2200_1_Parcela_a_menos.jpg',
+    '2500_Fatura_do_Cartão.jpg',
+    '2700_Indo_para_SP_de_Supetão.jpg',
+    '2800_Voltando_de_SP_de_Supetão.jpg',
+    '2900_Lua_de_Mel_1.jpg',
+    '2950_Lua_de_Mel_2.jpg',
+    '3000_Lua_de_Mel_3.jpg'
 ];
 
 // Parseia e cria mapa de imagens por valor

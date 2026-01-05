@@ -5,25 +5,25 @@ const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 // Adicione o nome do arquivo aqui quando colocar na pasta img/
 const CUSTOM_IMAGES = [
     '10_cafezinho.jpeg',
-    '20_Tacacá.jpeg',
+    '20_Tacaca.jpeg',
     '30_2x_Caboquinho.jpeg',
     '50_Banana_Pacovan.jpg',
-    '80_4_Espetinhos Frango.jpeg',
+    '80_4_Espetinhos_Frango.jpeg',
     '100_Rodada_Hot_Dog.jpeg',
     '120_Rodada_Top_Frozen.jpg',
     '150_Carne_Sol_Pedra.jpg',
     '200_Tambaqui_Assado.jpeg',
-    '250_Almoço_Tambaqui_de_Banda.jpg',
+    '250_Almoco_Tambaqui_de_Banda.jpg',
     '300_1_Tanque_de_Gasolina.webp',
     '400_Jantar_no_Roseiral.webp',
-    '500_Almoço_no_Caxiri.webp',
+    '500_Almoco_no_Caxiri.webp',
     '600_FDS_em_Presidente_Figueiredo.jpg',
-    '1800_Sessão_de_Fotos.jpg',
-    '2000_Mercado_do_Mês.jpg',
+    '1800_Sessao_de_Fotos.jpg',
+    '2000_Mercado_do_Mes.jpg',
     '2200_1_Parcela_a_menos.jpg',
-    '2500_Fatura_do_Cartão.jpg',
-    '2700_Indo_para_SP_de_Supetão.jpg',
-    '2800_Voltando_de_SP_de_Supetão.jpg',
+    '2500_Fatura_do_Cartao.jpg',
+    '2700_Indo_para_SP_de_Supetao.jpg',
+    '2800_Voltando_de_SP_de_Supetao.jpg',
     '2900_Lua_de_Mel_1.jpg',
     '2950_Lua_de_Mel_2.jpg',
     '3000_Lua_de_Mel_3.jpg'
@@ -488,4 +488,3 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
-

@@ -1,8 +1,33 @@
 // 📅 Data do casamento
 const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 
-// 📋 Lista de figurinhas/presentes
-// Para usar imagem: troque o emoji por "img:nome-do-arquivo" (ex: "img:cafe.png")
+// 🖼️ Imagens customizadas (padrão: VALOR_Texto_Aqui.extensão)
+// Adicione o nome do arquivo aqui quando colocar na pasta img/
+const CUSTOM_IMAGES = [
+    '10_cafezinho.jpeg',
+    '20_Tacacá.jpeg',
+    '30_2x_Caboquinho.jpeg',
+    '50_Banana_Pacovan.jpg',
+    '80_4_Espetinhos Frango.jpeg',
+    '100_Rodada_Hot_Dog.jpeg',
+    '120_Rodada_Top_Frozen.jpg',
+    '150_Carne_Sol_Pedra.jpg',
+    '200_Tambaqui_Assado.jpeg',
+];
+
+// Parseia e cria mapa de imagens por valor
+const IMAGES_BY_VALUE = {};
+CUSTOM_IMAGES.forEach(filename => {
+    const match = filename.match(/^(\d+)_(.+)\.(jpg|jpeg|png|gif|webp)$/i);
+    if (match) {
+        IMAGES_BY_VALUE[parseInt(match[1])] = {
+            path: `img/${filename}`,
+            title: match[2].replace(/_/g, ' ')
+        };
+    }
+});
+
+// 📋 Lista de figurinhas/presentes (emoji e título são fallback)
 const GIFTS = [
     // Página 1 - Mimos e experiências leves
     { id: 1, emoji: '☕', title: 'Cafézinho', value: 10 },
@@ -158,35 +183,51 @@ function showToast(message = 'PIX copiado!') {
 // =====================================================
 
 /**
- * Renderiza o conteúdo do sticker (emoji ou imagem)
- */
-function renderStickerContent(emoji) {
-    // Se começar com "img:", usa imagem da pasta imgs
-    if (emoji.startsWith('img:')) {
-        const imageName = emoji.replace('img:', '');
-        return `<img src="imgs/${imageName}" alt="Figurinha" loading="lazy">`;
-    }
-    // Caso contrário, usa emoji
-    return emoji;
-}
-
-/**
  * Cria HTML de um card
  */
 function createCardHTML(gift) {
-    const stickerContent = renderStickerContent(gift.emoji);
-    const isImage = gift.emoji.startsWith('img:');
+    const customImg = IMAGES_BY_VALUE[gift.value];
+    const hasImage = !!customImg;
+    const displayTitle = hasImage ? customImg.title : gift.title;
     const qrCodeUrl = generateQRCodeURL(gift.value);
     
+    // Layout diferente para cards com imagem (imagem ocupa card todo)
+    if (hasImage) {
+        return `
+            <div class="card-container">
+                <div class="card card-with-image" data-id="${gift.id}" data-value="${gift.value}">
+                    <!-- Frente - Imagem full -->
+                    <div class="card-face card-front">
+                        <img src="${customImg.path}" alt="${customImg.title}" class="card-bg-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-info">
+                            <span class="card-title">${displayTitle}</span>
+                            <span class="card-value">${formatValue(gift.value)}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Verso - QR Code -->
+                    <div class="card-face card-back">
+                        <div class="qr-wrapper" data-pix="${PIX_KEY}">
+                            <img class="qr-code" src="${qrCodeUrl}" alt="QR Code PIX" loading="lazy">
+                        </div>
+                        <span class="qr-hint">Toque para copiar</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Layout padrão com emoji
     return `
         <div class="card-container">
             <div class="card" data-id="${gift.id}" data-value="${gift.value}">
-                <!-- Frente - Figurinha -->
+                <!-- Frente - Emoji -->
                 <div class="card-face card-front">
-                    <div class="sticker ${isImage ? 'has-image' : ''}">
-                        ${stickerContent}
+                    <div class="sticker">
+                        <span class="sticker-emoji">${gift.emoji}</span>
                     </div>
-                    <span class="card-title">${gift.title}</span>
+                    <span class="card-title">${displayTitle}</span>
                     <span class="card-value">${formatValue(gift.value)}</span>
                 </div>
                 

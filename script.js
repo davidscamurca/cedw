@@ -4,33 +4,33 @@ const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 // 🖼️ Imagens customizadas (padrão: VALOR_Texto_Aqui.extensão)
 // Adicione o nome do arquivo aqui quando colocar na pasta img/
 const CUSTOM_IMAGES = [
-    '10_cafezinho.jpeg',
-    '20_Tacaca.jpeg',
-    '30_2x_Caboquinho.jpeg',
-    '50_Banana_Pacovan.jpg',
-    '80_4_Espetinhos_Frango.jpeg',
-    '100_Rodada_Hot_Dog.jpeg',
-    '120_Rodada_Top_Frozen.jpg',
-    '150_Carne_Sol_Pedra.jpg',
-    '200_Tambaqui_Assado.jpeg',
-    '250_Almoco_Tambaqui_de_Banda.jpg',
+    '10_cafezinho.webp',
+    '20_Tacaca.webp',
+    '30_2x_Caboquinho.webp',
+    '50_Banana_Pacovan.webp',
+    '80_4_Espetinhos_Frango.webp',
+    '100_Rodada_Hot_Dog.webp',
+    '120_Rodada_Top_Frozen.webp',
+    '150_Carne_Sol_Pedra.webp',
+    '200_Tambaqui_Assado.webp',
+    '250_Almoco_Tambaqui_de_Banda.webp',
     '300_1_Tanque_de_Gasolina.webp',
     '400_Jantar_no_Roseiral.webp',
     '500_Almoco_no_Caxiri.webp',
-    '600_FDS_em_Presidente_Figueiredo.jpg',
-    '750_Diaria_Hotel_Tropical.jpg',
-    '1000_DAY_SPA.jpg',
-    '1200_3_parcelas_pos_graduacao.jpg',
-    '1500_Diaria_Villa_Amazonia_Baixa_Temporada.jpeg',
-    '1800_Sessao_de_Fotos.jpg',
-    '2000_Mercado_do_Mes.jpg',
-    '2200_1_Parcela_a_menos.jpg',
-    '2500_Fatura_do_Cartao.jpg',
-    '2700_Indo_para_SP_de_Supetao.jpg',
-    '2800_Voltando_de_SP_de_Supetao.jpg',
-    '2900_Lua_de_Mel_1.jpg',
-    '2950_Lua_de_Mel_2.jpg',
-    '3000_Lua_de_Mel_3.jpg'
+    '600_FDS_em_Presidente_Figueiredo.webp',
+    '750_Diaria_Hotel_Tropical.webp',
+    '1000_DAY_SPA.webp',
+    '1200_3_parcelas_pos_graduacao.webp',
+    '1500_Diaria_Villa_Amazonia_Baixa_Temporada.webp',
+    '1800_Sessao_de_Fotos.webp',
+    '2000_Mercado_do_Mes.webp',
+    '2200_1_Parcela_a_menos.webp',
+    '2500_Fatura_do_Cartao.webp',
+    '2700_Indo_para_SP_de_Supetao.webp',
+    '2800_Voltando_de_SP_de_Supetao.webp',
+    '2900_Lua_de_Mel_1.webp',
+    '2950_Lua_de_Mel_2.webp',
+    '3000_Lua_de_Mel_3.webp'
 ];
 
 // Parseia e cria mapa de imagens por valor
@@ -154,7 +154,7 @@ function formatValue(value) {
  * Retorna o caminho do QR Code estático
  */
 function generateQRCodeURL(value) {
-    return 'img/qr.jpg';
+    return 'img/qr.webp';
 }
 
 /**
@@ -212,7 +212,7 @@ function createCardHTML(gift) {
             <div class="card card-with-image" data-id="${gift.id}" data-value="${gift.value}">
                 <!-- Frente - Imagem -->
                 <div class="card-face card-front">
-                    <img src="${img.path}" alt="${img.title}" class="card-bg-image">
+                    <img src="${img.path}" alt="${img.title}" class="card-bg-image" loading="lazy">
                     <div class="card-overlay"></div>
                     <div class="card-info">
                         <span class="card-title">${img.title}</span>

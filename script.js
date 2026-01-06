@@ -212,7 +212,7 @@ function createCardHTML(gift) {
             <div class="card card-with-image" data-id="${gift.id}" data-value="${gift.value}">
                 <!-- Frente - Imagem -->
                 <div class="card-face card-front">
-                    <img src="${img.path}" alt="${img.title}" class="card-bg-image" loading="lazy">
+                    <img src="${img.path}" alt="${img.title}" class="card-bg-image">
                     <div class="card-overlay"></div>
                     <div class="card-info">
                         <span class="card-title">${img.title}</span>

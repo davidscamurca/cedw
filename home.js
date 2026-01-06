@@ -5,8 +5,10 @@
 // 📅 Data do casamento
 const WEDDING_DATE = new Date('2026-04-14T00:00:00');
 
-// 🔗 URL do Google Apps Script
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7jl_oSUHJSn7m2b6l8LVn09oahOxaiDgpT_5dwVKeKz6dNMkWvyB2pfmvsQHOYKQ1/exec';
+// 🔗 URL do Google Apps Script (ofuscada)
+const _0xAS = 'Y2V4ZS8xUUtZT0hRc3ZtZnAyQnl2V2tNTmQ2ektlS1Z3ZDVfVHBnRGlheE9oYW85MG5WTDhsNmIybTduU0pIVVNvX2xqN3hiY3lmS0Evcy9zb3JjYW0vbW9jLmVsZ29vZy50cGlyY3MvLzpzcHR0aA==';
+const _$r = (s) => s.split('').reduce((a, c, i, arr) => a + arr[arr.length - 1 - i], '');
+const APPS_SCRIPT_URL = _$r(atob(_0xAS)).trim();
 
 // =====================================================
 // ELEMENTOS DOM

@@ -315,6 +315,15 @@ body {
     transform: rotateY(180deg);
 }
 
+/* Esconde completamente a frente quando flipped (fallback para Safari) */
+.card.flipped .card-front {
+    visibility: hidden;
+}
+
+.card.flipped .card-back {
+    visibility: visible;
+}
+
 /* Faces do Card - Material Design */
 .card-face {
     position: absolute;
@@ -477,6 +486,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px;
+    visibility: hidden;
 }
 
 .qr-wrapper {

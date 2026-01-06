@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lista de Presentes · Camila & David 💍</title>
+    
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Lista de presentes do casamento de Camila e David - 14 de Abril de 2026">
+    <meta property="og:title" content="Camila & David 💍">
+    <meta property="og:description" content="Escolha uma figurinha e contribua com nosso sonho! Lista de presentes do casamento.">
+    <meta property="og:image" content="https://camilaedavid.site/img/home1.jpeg">
+    <meta property="og:url" content="https://camilaedavid.site">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#2d5a3d">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦜</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Hero -->
+        <header class="hero">
+            <!-- Foto como background -->
+            <div class="hero-photos">
+                <div class="hero-photo-wrapper">
+                    <img src="img/home1.jpeg" alt="Camila e David" class="hero-photo">
+                </div>
+            </div>
+            
+            <!-- Overlay com gradiente -->
+            <div class="hero-overlay"></div>
+            
+            <!-- Conteúdo por cima -->
+            <div class="hero-content">
+                <div class="names">
+                    <span class="name">Camila</span>
+                    <span class="ampersand">&</span>
+                    <span class="name">David</span>
+                </div>
+                <p class="wedding-date">14 de Abril de 2026</p>
+            </div>
+        </header>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <p class="info-main">Lista de Presentes · <span id="countdown">Faltam 101 dias</span> 🌿</p>
+            <p class="info-hint">Toque para revelar · Deslize para navegar</p>
+        </div>
+
+        <!-- Grid de Cards -->
+        <div class="cards-wrapper">
+            <!-- Indicadores de swipe -->
+            <div class="swipe-indicator swipe-left" id="swipeLeft">
+                <span class="swipe-arrow">‹</span>
+            </div>
+            
+            <main class="cards-grid" id="cardsGrid">
+                <!-- Cards serão inseridos via JavaScript -->
+            </main>
+            
+            <div class="swipe-indicator swipe-right" id="swipeRight">
+                <span class="swipe-arrow">›</span>
+            </div>
+        </div>
+
+        <!-- Paginação -->
+        <nav class="pagination">
+            <button class="page-btn" data-page="1">
+                <span class="page-number">1</span>
+            </button>
+            <button class="page-btn" data-page="2">
+                <span class="page-number">2</span>
+            </button>
+            <button class="page-btn" data-page="3">
+                <span class="page-number">3</span>
+            </button>
+        </nav>
+
+        <!-- Botão Voltar -->
+        <div class="back-link">
+            <a href="index.html" class="back-btn">← Voltar ao início</a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Feito com 💚 para nosso grande dia</p>
+        </footer>
+    </div>
+
+    <!-- Toast de confirmação -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-text">PIX copiado!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

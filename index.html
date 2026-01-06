@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Camila & David 💍 Lista de Presentes</title>
+    <title>Camila & David 💍 Casamento</title>
     
     <!-- SEO & Open Graph -->
-    <meta name="description" content="Lista de presentes do casamento de Camila e David - 14 de Abril de 2026">
+    <meta name="description" content="Casamento de Camila e David - 14 de Abril de 2026. Confirme sua presença e veja nossa lista de presentes!">
     <meta property="og:title" content="Camila & David 💍">
-    <meta property="og:description" content="Escolha uma figurinha e contribua com nosso sonho! Lista de presentes do casamento.">
+    <meta property="og:description" content="Casamento de Camila e David - 14 de Abril de 2026. Confirme sua presença!">
     <meta property="og:image" content="https://camilaedavid.site/img/home1.jpeg">
     <meta property="og:url" content="https://camilaedavid.site">
     <meta property="og:type" content="website">
@@ -22,78 +22,106 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦜</text></svg>">
 </head>
 <body>
-    <div class="container">
-        <!-- Header Hero -->
-        <header class="hero">
-            <!-- Foto como background -->
-            <div class="hero-photos">
-                <div class="hero-photo-wrapper">
-                    <img src="img/home1.jpeg" alt="Camila e David" class="hero-photo">
-                </div>
+    <div class="home-container">
+        <!-- Background Hero Full -->
+        <div class="home-hero">
+            <div class="home-photo-wrapper">
+                <img src="img/home1.jpeg" alt="Camila e David" class="home-photo">
             </div>
-            
-            <!-- Overlay com gradiente -->
-            <div class="hero-overlay"></div>
-            
-            <!-- Conteúdo por cima -->
-            <div class="hero-content">
-                <div class="names">
-                    <span class="name">Camila</span>
-                    <span class="ampersand">&</span>
-                    <span class="name">David</span>
-                </div>
-                <p class="wedding-date">14 de Abril de 2026</p>
-            </div>
-        </header>
-
-        <!-- Info Section -->
-        <div class="info-section">
-            <p class="info-main">Lista de Presentes · <span id="countdown">Faltam 101 dias</span> 🌿</p>
-            <p class="info-hint">Toque para revelar · Deslize para navegar</p>
+            <div class="home-overlay"></div>
         </div>
 
-        <!-- Grid de Cards -->
-        <div class="cards-wrapper">
-            <!-- Indicadores de swipe -->
-            <div class="swipe-indicator swipe-left" id="swipeLeft">
-                <span class="swipe-arrow">‹</span>
+        <!-- Conteúdo Central -->
+        <div class="home-content">
+            <!-- Decoração superior -->
+            <div class="home-decoration">
+                <span class="leaf">🌿</span>
             </div>
-            
-            <main class="cards-grid" id="cardsGrid">
-                <!-- Cards serão inseridos via JavaScript -->
-            </main>
-            
-            <div class="swipe-indicator swipe-right" id="swipeRight">
-                <span class="swipe-arrow">›</span>
+
+            <!-- Nomes do casal -->
+            <div class="home-names">
+                <span class="home-name">Camila</span>
+                <span class="home-ampersand">&</span>
+                <span class="home-name">David</span>
             </div>
+
+            <!-- Subtítulo -->
+            <p class="home-subtitle">Convidam você para celebrar o nosso matrimônio</p>
+
+            <!-- Data -->
+            <div class="home-date-wrapper">
+                <div class="home-date-line"></div>
+                <p class="home-date">14 de Abril de 2026</p>
+                <div class="home-date-line"></div>
+            </div>
+
+            <!-- Countdown -->
+            <p class="home-countdown" id="homeCountdown">Faltam 101 dias</p>
+
+            <!-- Botões de ação -->
+            <div class="home-actions">
+                <button class="home-btn home-btn-primary" id="btnConfirmar">
+                    <span class="btn-icon">💌</span>
+                    <span class="btn-text">Confirmar Presença</span>
+                </button>
+                
+                <a href="presentes.html" class="home-btn home-btn-secondary">
+                    <span class="btn-icon">🎁</span>
+                    <span class="btn-text">Lista de Presentes</span>
+                </a>
+            </div>
+
         </div>
-
-        <!-- Paginação -->
-        <nav class="pagination">
-            <button class="page-btn" data-page="1">
-                <span class="page-number">1</span>
-            </button>
-            <button class="page-btn" data-page="2">
-                <span class="page-number">2</span>
-            </button>
-            <button class="page-btn" data-page="3">
-                <span class="page-number">3</span>
-            </button>
-        </nav>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Feito com 💚 para nosso grande dia</p>
-        </footer>
     </div>
 
-    <!-- Toast de confirmação -->
+    <!-- Modal de Confirmação -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            
+            <div class="modal-header">
+                <span class="modal-icon">💌</span>
+                <h2 class="modal-title">Confirmar Presença</h2>
+                <p class="modal-subtitle">Estamos muito felizes em tê-lo(a) conosco!</p>
+            </div>
+
+            <form class="modal-form" id="confirmForm">
+                <div class="form-group">
+                    <label for="nomeConvidado" class="form-label">Seu nome completo</label>
+                    <input 
+                        type="text" 
+                        id="nomeConvidado" 
+                        class="form-input" 
+                        placeholder="Digite seu nome"
+                        required
+                        autocomplete="name"
+                    >
+                </div>
+
+                <button type="submit" class="form-submit" id="submitBtn">
+                    <span class="submit-text">Confirmar</span>
+                    <span class="submit-loading" style="display: none;">
+                        <span class="spinner"></span>
+                        Enviando...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Mensagem de sucesso -->
+            <div class="modal-success" id="modalSuccess" style="display: none;">
+                <span class="success-icon">✓</span>
+                <h3 class="success-title">Presença Confirmada!</h3>
+                <p class="success-text">Obrigado! Estamos ansiosos para celebrar esse dia especial com você. 💚</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
     <div class="toast" id="toast">
         <span class="toast-icon">✓</span>
-        <span class="toast-text">PIX copiado!</span>
+        <span class="toast-text">Confirmado!</span>
     </div>
 
-    <script src="script.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
-
